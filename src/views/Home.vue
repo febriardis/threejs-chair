@@ -5,54 +5,13 @@
     <!-- These toggle the the different parts of the chair that can be edited, note data-option is the key that links to the name of the part in the 3D file -->
     <div class="options">
       <div
+        v-for="(option, i) in options"
+        :key="i"
         class="option"
-        :class="{ '--is-active': activeOption === 'legs' }"
-        @click="selectOption('legs')"
+        :class="{ '--is-active': activeOption === option.id }"
+        @click="selectOption(option.id)"
       >
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/legs.svg"
-          alt=""
-        />
-      </div>
-      <div
-        class="option"
-        :class="{ '--is-active': activeOption === 'cushions' }"
-        @click="selectOption('cushions')"
-      >
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/cushions.svg"
-          alt=""
-        />
-      </div>
-      <div
-        class="option"
-        :class="{ '--is-active': activeOption === 'base' }"
-        @click="selectOption('base')"
-      >
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/base.svg"
-          alt=""
-        />
-      </div>
-      <div
-        class="option"
-        :class="{ '--is-active': activeOption === 'supports' }"
-        @click="selectOption('supports')"
-      >
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/supports.svg"
-          alt=""
-        />
-      </div>
-      <div
-        class="option"
-        :class="{ '--is-active': activeOption === 'back' }"
-        @click="selectOption('back')"
-      >
-        <img
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/back.svg"
-          alt=""
-        />
+        <img :src="option.src" alt="" />
       </div>
     </div>
 
@@ -94,7 +53,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { ColorsData } from "@/static/index";
+import { ColorsData, optionsData } from "@/static/index";
 
 const DRAG_NOTICE = document.getElementById("js-drag-notice");
 const BACKGROUND_COLOR = 0xf1f1f1;
@@ -114,6 +73,7 @@ export default {
       controls: null,
       mesh: null,
       colors: ColorsData,
+      options: optionsData,
       activeOption: "legs"
     };
   },

@@ -1,3 +1,25 @@
+export const optionsData = [
+  {
+    id: "legs",
+    src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/legs.svg"
+  },
+  {
+    id: "cushions",
+    src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/cushions.svg"
+  },
+  {
+    id: "base",
+    src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/base.svg"
+  },
+  {
+    id: "supports",
+    src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/supports.svg"
+  },
+  {
+    id: "back",
+    src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/back.svg"
+  }
+];
 export const ColorsData = [
   {
     texture: "/assets/textures/wood_.jpg",
